@@ -180,6 +180,16 @@
       </desc>
     </func>
     <func>
+      <name name="get_supervisor" arity="1" since=""/>
+      <fsummary>Get the pid of the top-most supervisor of an application.</fsummary>
+      <desc>
+        <p>Returns the <c><anno>Pid</anno></c> of the top-most supervisor of the
+        application.</p>
+        <p>If the specified application does not exist or have a supervisor,
+        ArgumentError will be raised.</p>
+      </desc>
+    </func>
+    <func>
       <name name="load" arity="1" since=""/>
       <name name="load" arity="2" since=""/>
       <fsummary>Load an application.</fsummary>

@@ -20,9 +20,10 @@
 -module(application).
 
 -export([ensure_all_started/1, ensure_all_started/2, start/1, start/2,
-	 start_boot/1, start_boot/2, stop/1, 
+	 start_boot/1, start_boot/2, stop/1,
 	 load/1, load/2, unload/1, takeover/2,
-	 which_applications/0, which_applications/1,
+   get_supervisor/1,
+   which_applications/0, which_applications/1,
 	 loaded_applications/0, permit/2]).
 -export([ensure_started/1, ensure_started/2]).
 -export([set_env/1, set_env/2, set_env/3, set_env/4, unset_env/2, unset_env/3]).
@@ -246,6 +247,15 @@ permit(Application, Bool) ->
 
 stop(Application) ->
     application_controller:stop_application(Application).
+
+-spec get_supervisor(Application) -> Pid when
+      Pid :: pid(),
+      Application :: atom().
+
+get_supervisor(Application) ->
+    Master = application_controller:get_master(Application),
+    {Pid, _} = application_master:get_child(Master),
+    Pid.
 
 -spec which_applications() -> [{Application, Description, Vsn}] when
       Application :: atom(),
