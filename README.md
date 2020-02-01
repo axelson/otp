@@ -1,3 +1,10 @@
+notes
+
+https://github.com/erlang/otp/blob/master/CONTRIBUTING.md
+https://github.com/erlang/otp/wiki/Running-tests
+
+Erlang has a way to instantiate an application from a datastructure. This functionality would be useful when writing my tests.
+
 # [Erlang/OTP](https://www.erlang.org)
 
 **Erlang** is a programming language and runtime system for building massively scalable soft real-time systems with requirements on high availability. 
